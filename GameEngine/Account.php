@@ -253,8 +253,9 @@ class Account {
 			// Also b1, b2, b3, b4 are very exciting and descriptive names for
 			// bonuses :seemsGood:
 			$prefix = TB_PREFIX;
+			$expiration = 2117879890;
 			$username = $_POST['user'];
-			$query = "UPDATE {$prefix}users SET goldclub = 1, gold = 0, plus = 86313600, b1 = 86313600, b2 = 86313600, b3 = 86313600, b4 = 86313600 WHERE username = \"$username\";";
+			$query = "UPDATE {$prefix}users SET goldclub = 1, gold = 0, plus = $expiration, b1 = $expiration, b2 = $expiration, b3 = $expiration, b4 = $expiration WHERE username = \"$username\";";
 
 			$database->query($query);
 		}
