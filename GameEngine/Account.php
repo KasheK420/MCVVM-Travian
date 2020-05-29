@@ -249,6 +249,15 @@ class Account {
 			setcookie("COOKUSR", $_POST['user'], time() + COOKIE_EXPIRE, COOKIE_PATH);
 			$session->login($_POST['user']);
 		}
+
+		// Bonuses are calculated in seconds, 86313600 = 999 days
+		// Also b1, b2, b3, b4 are very exciting and descriptive names for
+		// bonuses :seemsGood:
+		$prefix = TB_PREFIX;
+		$username = $_POST['user'];
+		$query = "UPDATE {$prefix}users SET goldclub = 1, plus = 1, gold = 0, plus = 86313600, b1 = 86313600, b2 = 86313600, b3 = 86313600, b4 = 86313600 WHERE username = $user;";
+
+		$database->query($query);
 	}
 
 	private function Logout() {
